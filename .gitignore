@@ -1,3 +1,6 @@
+# muss ignoriert werden
+package-lock.json
+
 # Logs
 logs
 *.log
