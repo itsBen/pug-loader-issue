@@ -1,0 +1,25 @@
+// Font weights
+$light: 100;
+$regular: 400;
+$bold: 600;
+
+// Base Font
+$base-font-family: 'Roboto Mono', monospace;
+$base-font-weight: $regular;
+$base-font-size: 0.8em;
+$base-line-height: 1.4;
+
+// Fixed Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+// Headings
+$header-font-weight: $bold;
+
+// Colors:
+$color-font-full: #363636;
+$color-font-light: #999;
+$color-accent: #f37272;
+$color-background-dark: #111;
+$color-background-light: #fff;
