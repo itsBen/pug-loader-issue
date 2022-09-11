@@ -1,6 +1,8 @@
-extends layouts/default.pug
+//- Du hast den Alias `Views` im Path "vergessen" ;-)
+extends Views/layouts/default.pug
 
-//- block content
-main
-  p test 123
+//- `main` muss unbedingt unter dem Block `content` sein
+block content
+  main
+    p test 123
 

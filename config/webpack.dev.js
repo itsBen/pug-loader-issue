@@ -1,7 +1,7 @@
 /* eslint-disable */
-const {
-  CleanWebpackPlugin,
-} = require('clean-webpack-plugin')
+// const {
+//   CleanWebpackPlugin,
+// } = require('clean-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const PugPlugin = require('pug-plugin')
 
@@ -24,7 +24,7 @@ module.exports = {
     // output filename of scripts
     filename: 'assets/js/[name].[contenthash:8].js',
     chunkFilename: 'assets/js/[id].[contenthash:8].js',
-    clean: true,
+    clean: true, // diese Option macht genau das gleiche wie `CleanWebpackPlugin`, deswegen das CleanWebpackPlugin kann raus
   },
 
   resolve: {
@@ -80,7 +80,8 @@ module.exports = {
   plugins: [
 
     // Removes/cleans build folders and unused assets when rebuilding
-    new CleanWebpackPlugin(),
+    // TODO: löcschen, da die Option `output.clean: true` macht das schon
+    //new CleanWebpackPlugin(),
 
     new PugPlugin({
       verbose: true, // output information about the process to console
@@ -163,5 +164,23 @@ module.exports = {
     // show webpack version in summary
     hash: true,
     // show build hash in summary
+  },
+
+  // define `devServer` Einstellungen
+  devServer: {
+    static: {
+      directory: paths.dist,
+    },
+    compress: true,
+    // hier ist ultra wichtige Einstellung damit die geänderte Dateien aus dem `./src` Ordner direct neu kompileren
+    watchFiles: {
+      paths: ['src/**/*.*'],
+      options: {
+        usePolling: true, // für Live Reload ist wichtig
+      },
+    },
+
+    // open in default browser
+    //open: true,
   },
 }
